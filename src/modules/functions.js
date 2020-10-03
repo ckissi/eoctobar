@@ -61,7 +61,25 @@ exports.getListId = async () => {
 };
 //===================================================================
 exports.initTrayMenu = () => {
-  menuTemplate = [
+  menuTemplate = [        
+    {
+      label: "Show My List",
+      click: () => {
+        const api_keys = this.getSettings();
+        shell.openExternal(
+          `https://emailoctopus.com/lists/${api_keys.list_id}`
+        );
+      },
+    },
+    {
+      label: "Refresh",
+      click: () => {
+        this.getListData(this.showSubscribers);
+      },
+    },    
+    {
+      type: "separator",
+    },
     {
       label: "Configure...",
       click: function () {
@@ -93,24 +111,6 @@ exports.initTrayMenu = () => {
           win = null;
         });
         //win.show();
-      },
-    },
-    {
-      type: "separator",
-    },
-    {
-      label: "Show My List",
-      click: () => {
-        const api_keys = this.getSettings();
-        shell.openExternal(
-          `https://emailoctopus.com/lists/${api_keys.list_id}`
-        );
-      },
-    },
-    {
-      label: "Refresh",
-      click: () => {
-        this.getListData(this.showSubscribers);
       },
     },
     {

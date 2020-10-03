@@ -45,7 +45,8 @@
 </div>
 <script>
     // You can also require other files to run in this process
-    require('./configure.js')
+    const path = require('path');
+   require(path.resolve('./src/configure.js')) 
 </script>
 </body>
 </html>
