@@ -8,6 +8,10 @@
 yarn
 ```
 (it will install all dependencies)
+- to run the app in development mode run:
+```
+yarn start
+```
 - to make executable for your OS run: 
 ```
 yarn make
