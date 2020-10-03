@@ -1,0 +1,69 @@
+{
+  "name": "eoctobar",
+  "productName": "eoctobar",
+  "version": "1.0.0",
+  "description": "My Electron application description",
+  "main": "src/index.js",
+  "scripts": {
+    "start": "electron-forge start",
+    "package": "set NODE_ENV=production&& electron-forge package",
+    "make": "electron-forge make",
+    "publish": "electron-forge publish",
+    "lint": "echo \"No linting configured\""
+  },
+  "keywords": [],
+  "author": {
+    "name": "Csaba Kissi",
+    "email": "ckissi@gmail.com"
+  },
+  "license": "MIT",
+  "config": {
+    "forge": {
+      "packagerConfig": {
+        "icon": "assets/icons/mac/icons.icns"
+      },
+      "makers": [
+        {
+          "name": "@electron-forge/maker-squirrel",
+          "config": {
+            "name": "eoctobar"
+          }
+        },
+        {
+          "name": "@electron-forge/maker-zip",
+          "platforms": [
+            "darwin"
+          ]
+        },
+        {
+          "name": "@electron-forge/maker-deb",
+          "config": {}
+        },
+        {
+          "name": "@electron-forge/maker-rpm",
+          "config": {}
+        }
+      ]
+    }
+  },
+  "dependencies": {
+    "auto-launch": "^5.0.5",
+    "dotenv": "^8.2.0",
+    "electron-settings": "^4.0.2",
+    "electron-squirrel-startup": "^1.0.0",
+    "https": "^1.0.0",
+    "querystring": "^0.2.0"
+  },
+  "devDependencies": {
+    "@electron-forge/cli": "6.0.0-beta.53",
+    "@electron-forge/maker-deb": "6.0.0-beta.53",
+    "@electron-forge/maker-rpm": "6.0.0-beta.53",
+    "@electron-forge/maker-squirrel": "6.0.0-beta.53",
+    "@electron-forge/maker-zip": "6.0.0-beta.53",
+    "autoprefixer": "^10.0.1",
+    "electron": "10.1.3",
+    "electron-reload": "^1.5.0",
+    "postcss-loader": "^4.0.2",
+    "tailwindcss": "^1.8.10"
+  }
+}

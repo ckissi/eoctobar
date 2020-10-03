@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Configure</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet"
+          href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,300i,400,400i,500,500i,600,600i,700,700i&amp;subset=latin-ext">
+    <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body>
+<div class="container">
+    <div class="m-4">
+        <div class="">
+            <div class="">
+                <div class="card-header">
+                    <h3 class="font-semibold mb-5">Email Octopus API Configuration</h3>
+                </div>
+                <div class="mb-3">
+                    <div class="row">
+                        <div class="flex mb-2">
+                            <label class="w-1/5 self-center ">
+                                Api Key <span class="form-required">*</span>
+                            </label>
+                            <input name="api_key" type="text" class="border-2 p-1 rounded-md w-4/5 outline-none" id="api_key"
+                                   value="">
+                        </div>
+                        <div class="flex mb-2">
+                            <label class="w-1/5 self-center">
+                                List ID <span class="form-required">*</span>
+                            </label>
+                            <input name="list_id" type="text" class="border-2 p-1 rounded-md w-4/5 outline-none" id="list_id"
+                                   value="">
+                        </div>
+                    </div>
+                </div>
+                <div class="mt-4 flex justify-end">
+                    <button type="submit" class="rounded-md bg-blue-500 p-2 text-white mr-2 outline-none border-blue-500 px-4" id="test_btn">Test Connection</button>
+                    <button type="submit" class="text-white rounded-md bg-blue-500 p-2 outline-none px-4" id="save_btn">Save</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    // You can also require other files to run in this process
+    require('./configure.js')
+</script>
+</body>
+</html>
