@@ -3,11 +3,11 @@
 ## Install
 - clone repository to your local folder
 - change directory to that folder
-- run: 
+- you need to install all of the dependencies first: 
 ```
 yarn
 ```
-(it will install all dependencies)
+
 - to run the app in development mode run:
 ```
 yarn start
