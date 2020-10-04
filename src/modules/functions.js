@@ -7,6 +7,8 @@ const querystring = require("querystring");
 const BrowserWindow = electron.BrowserWindow;
 const url = require("url");
 const settings = require("electron-settings");
+let contextMenu = {};
+let menuTemplate = {};
 
 //===================================================================
 exports.getListData = (callback) => {
@@ -49,7 +51,10 @@ exports.getListData = (callback) => {
 };
 //===================================================================
 exports.showSubscribers = (cnt) => {
-  tray.setTitle(cnt.toString());
+  tray.setTitle(cnt.toString());  
+  menuTemplate[0].label = "Subscribers: " + cnt.toString();
+  contextMenu = Menu.buildFromTemplate(menuTemplate);
+  tray.setContextMenu(contextMenu);
 };
 //===================================================================
 exports.getApiKey = async () => {
@@ -61,7 +66,16 @@ exports.getListId = async () => {
 };
 //===================================================================
 exports.initTrayMenu = () => {
-  menuTemplate = [        
+  menuTemplate = [
+    {
+      label: "Subscribbers: ",
+      click: () => {
+        this.getListData(this.showSubscribers);
+      },
+    },
+    {
+      type: "separator",
+    },
     {
       label: "Show My List",
       click: () => {
@@ -76,7 +90,7 @@ exports.initTrayMenu = () => {
       click: () => {
         this.getListData(this.showSubscribers);
       },
-    },    
+    },
     {
       type: "separator",
     },
@@ -87,7 +101,7 @@ exports.initTrayMenu = () => {
           frame: true,
           transparent: false,
           alwaysOnTop: true,
-          width: 800,
+          width: 500,
           height: 240,
           show: true,
           icon: path.join(__dirname, "../assets/img/icon.png"),
@@ -105,7 +119,7 @@ exports.initTrayMenu = () => {
         );
 
         //win.loadURL(modalPath);
-        settingsWindow.webContents.openDevTools();
+        //settingsWindow.webContents.openDevTools();
         //win.on('close', function () { win = null });
         settingsWindow.on("close", function () {
           win = null;
